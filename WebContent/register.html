@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Hulton Hotels Booking System</title>
+  </head>
+
+  <script type="text/javascript">
+
+    <!-- This function checks if all the fields the user provided are valid -->
+    function validate_form() {
+
+      <!-- Check if the name provided is not empty and is less than 50 characters -->
+      var nameValue = document.forms["registerForm"]["name"].value;
+      if (!nameValue || nameValue.length > 50) {
+        alert("Please enter a valid name.");
+        return false;
+      }
+
+      <!-- Check if the address provided is not empty and is less than 100000 characters -->
+      var streetAddressValue = document.forms["registerForm"]["streetAddress"].value;
+      if (!streetAddressValue || streetAddressValue.length > 100000) {
+        alert("Please enter a valid street address.");
+    	return false;
+      }
+
+      <!-- Check if the email provided is not empty and is valid and is valid and is less than 50 characters -->
+      var emailValue = document.forms["registerForm"]["email"].value;
+      var emailRegularExpression = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      if (!emailValue || !emailRegularExpression.test(emailValue) || emailValue.length > 50) {
+        alert("Please enter a valid email.");
+	    return false;
+      }
+
+      <!-- Check if the phone number provided is not empty and is exactly 10 characters -->
+      var phoneValue = document.forms["registerForm"]["phone"].value;
+	  if (!phoneValue || phoneValue.length != 10) {
+	    alert("Please enter a phone number. A phone number must contain only 10 digits with no dashes");
+	    return false;
+	  }
+
+      return true;
+
+    }
+
+  </script>
+
+  <body>
+    <div align="center">"<font size="9">Hulton Hotels Booking System</font></div>
+    <br>
+
+    <h4 align="center">Please fill out all the fields below to register. </h4>
+    <br>
+
+    <form name="registerForm" action="register.jsp" method="post" onsubmit ="return validate_form()">
+      <div align="center">
+        <table>
+
+          <tr>
+            <td>Name</td>
+            <td><input name ="name" type = "text" placeholder="Name" maxlength = "50" required></td>
+          </tr>
+
+          <tr>
+            <td>Address</td>
+            <td><input name="streetAddress" type= "text" placeholder="Address" maxlength = "100000" required></td>
+          </tr>
+
+          <tr>
+            <td>Email</td>
+            <td><input name="email" type="text" placeholder="Email" maxlength = "127" required></td>
+          </tr>
+
+          <tr>
+            <td>Phone number</td>
+            <td><input name ="phone" type = "number" placeholder="0000000000" required></td>
+          </tr>
+
+        </table>
+	  </div>
+	  <div align="center">
+	    <input type="submit" value="Register">
+	  </div>
+    </form>
+  </body>
+</html>

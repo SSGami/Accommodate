@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>Hulton Hotels Booking System</title>
+  </head>
+
+  <script type="text/javascript">
+
+    <!-- This function checks if all the field the user provided is valid -->
+    function validate_form() {
+
+      <!-- Check if the CID provided contains the valid amount of digits -->
+      var CIDValue = document.forms["loginForm"]["CID"].value;
+      if (CIDValue.length != 9) {
+        alert("A valid CID has 9 characters");
+        return false;
+      }
+
+      <!-- If we have passed this check, we can return true -->
+      return true;
+    }
+  </script>
+
+  <body>
+    <div align="center">"<font size="9">Hulton Hotels Booking System</font></div>
+    <br>
+    <h5 align= "center">Please login with your Customer ID to Continue</h5>
+    <form name="loginForm" action="login.jsp" method="post" onsubmit ="return validate_form()">
+      <div align="center">
+	    <table>
+          <tr>
+            <td>Customer ID: </td>
+		    <td><input name ="CID" type = "number" placeholder="CID Number" maxlength = "9" required></td>
+		  </tr>
+        </table>
+      </div>
+      <br>
+      <div align="center">
+	    <input type="submit" value="Login">
+	  </div>
+	  <br>
+	  <br>
+	  <div align="center">
+	    <a class="active" href="register.html">Don't have a CID yet? Click here to register!</a>
+	  </div>
+    </form>
+  </body>
+</html>
